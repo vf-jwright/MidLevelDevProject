@@ -7,7 +7,7 @@
 
 2. [Deploy Connect Contact Flow](https://github.com/jrwright121/MidLevelDevProject/tree/main/connectContactFlow) - Amazon Connect contact flow that looks at the caller's phone number and says the 3 vanity possibilities that come back from the Lambda function 
 
-3. [Writing and Documentation](https://github.com/jrwright121/MidLevelDevProject/tree/main/writingDocumentation)
+## [Writing and Documentation](https://github.com/jrwright121/MidLevelDevProject/tree/main/writingDocumentation)
     * Record your reasons for implementing the solution the way you did, struggles you faced and problems you overcame.
     * What shortcuts did you take that would be a bad practice in production?
     * What would you have done with more time?
