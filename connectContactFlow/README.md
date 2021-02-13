@@ -2,8 +2,7 @@
 ## MidLevelDevProject!
 
 Amazon Connect contact flow that looks at the caller's phone number and says the 3 vanity possibilities that come back from the Lambda function
-
-![Kiku](assets/connectContactFlow.PNG)
+<img src="assets/connectContactFlow.PNG" alt="drawing" width="1000"/>
 
 ## Deployment and Configuration
 ### Deploy Contact Flow
