@@ -13,4 +13,4 @@ Amazon Connect contact flow that looks at the caller's phone number and says the
 5. Save and Publish Contact Flow. 
 6. Progress back to AWS Console - Amazon Connect.
 7. Select the Connect **Instance Alias** your Contact Flow is in.
-8. Click "Contact flows" and from the AWS Lambda section **+Add Lambda Function**
+8. Click "Contact flows" and from the AWS Lambda section **+Add Lambda Function**<img src="assets/addLambdaFunction.png" alt="drawing" width="400"/>
