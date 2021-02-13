@@ -5,7 +5,9 @@ Amazon Connect contact flow that looks at the caller's phone number and says the
 
 ![Kiku](assets/connectContactFlow.PNG)
 
-From Amazon Connect Account, click "Create contact flow"
-Next to inactive save button click the dropdown and select "Import flow (beta)"
-Click "Select" and from the file explorer choose "connectContactFlow/MidLevelDevProject"
-Click "invoke AWSLambda function" node and change the <account-id> to your own. 
+## Deployment
+1. From Amazon Connect Account, click "Create contact flow"
+2. Next to inactive save button click the dropdown and select "Import flow (beta)"
+3. Click "Select" and from the file explorer choose "connectContactFlow/MidLevelDevProject"
+4. Click "invoke AWSLambda function" node, and change the <account-id> to your own. 
+  ![Kiku](assets/connectContactFlow.png)
