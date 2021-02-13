@@ -1,8 +1,9 @@
 # Welcome to Voice Foundry Connect Contact Flow project: 
 ## MidLevelDevProject!
 
-Amazon Connect contact flow that looks at the caller's phone number and says the 3 vanity possibilities that come back from the Lambda function
-<img src="assets/connectContactFlow.PNG" alt="drawing" width="1000"/>
+Amazon Connect contact flow that looks at the caller's phone number and says the 3 vanity possibilities that come back from the Lambda function.
+<br />
+<img src="assets/connectContactFlow.PNG" alt="drawing" width="800"/>
 
 ## Deployment and Configuration
 ### Deploy Contact Flow
