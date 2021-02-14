@@ -1,5 +1,5 @@
 /**
- * @fileoverview 
+ * @fileoverview This function takes a string of number digits and returns the five Vanity Words
  * @author Jacob Wright
  * 
  */
