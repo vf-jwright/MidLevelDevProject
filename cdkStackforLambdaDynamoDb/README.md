@@ -12,8 +12,8 @@ Lambda that converts phone numbers to vanity numbers and save the best 5 resulti
 ## Deployment Instructions
 (Run all step in order)
  1. `git clone https://github.com/jrwright121/MidLevelDevProject/tree/main/cdkStackforLambdaDynamoDb` - clone repository.
- 2. `npm i`  installs node dependencies.
- 3. `cd ./lambdaFunction && npm i` - Direct to Lambda Function and install node dependencies. 
+ 2. `npm i`  installs cdk node dependencies.
+ 3. `cd ./lambdaFunction` && `npm run build` - Direct to Lambda Function and build Lambda Function. 
  4. `cd ../` - Direct back to root CDK project
  5. `cdk synthesize` - Synthesize cdk project (creates a CloudFormation Stack to evaluate before deployment).
  5. `cdk bootstrap` - Bootstrap CDK (initialize project to AWS environment).

@@ -72,13 +72,9 @@ exports.handler = void 0;
 var AWS = require("aws-sdk");
 AWS.config.update({ region: 'us-east-1' });
 var assets_1 = require("./assets/assets");
-/**
- * @param event : any - Contact Flow event expected to contain customerEndpoint with Address and Type = TELEPHONE_NUMBER
- * @returns {{callerIdWord:string, one: string, two:string, three:string}} - callerId in word format for for Contact Flow to be in customer friendly format, three Vanity Numbers to present to customer.
- */
 exports.handler = function (event) {
     return __awaiter(this, void 0, void 0, function () {
-        var callerId, firstSetTopThree, secondSetTopThree, thirdSetTopThree, zeroCounter, firstSet, secondSet, thirdSet, vanityWords, callerIdWord;
+        var callerId, firstSetVanity, secondSetVanity, thirdSetVanity, zeroCounter, firstSet, secondSet, thirdSet, firstSetAsWord, secondSetAsWord, vanityWords, callerIdWord, results;
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
@@ -92,52 +88,55 @@ exports.handler = function (event) {
                     secondSet = callerId.substring(5, 8);
                     thirdSet = callerId.substring(8, 12);
                     // Looking for 0's and 1's in each segment as they will not produce nice vanity words
-                    // Only process each segment if they do not contain a 0 or 1
+                    // Only process each segment if they do not contain a 0 or 1 - if so return 
+                    // Get all Vanity Words for each segment. 
                     if (firstSet.includes('0') || firstSet.includes('1')) {
                         console.debug('firstSet contains 0 or 1');
+                        firstSetAsWord = assets_1.getNumberAsWord(firstSet);
                         zeroCounter++;
-                        firstSetTopThree = [assets_1.getNumberAsWord(firstSet), assets_1.getNumberAsWord(firstSet), assets_1.getNumberAsWord(firstSet)];
+                        firstSetVanity = [firstSetAsWord, firstSetAsWord, firstSetAsWord, firstSetAsWord, firstSetAsWord];
                     }
                     else {
-                        firstSetTopThree = assets_1.getTopThreeWords(firstSet);
-                        console.log('firstSetTopThree: ', firstSetTopThree.toString());
+                        firstSetVanity = assets_1.getOrderVanityWords(firstSet);
+                        console.log('firstSetVanity: ', firstSetVanity.toString());
                     }
                     if (secondSet.includes('0') || secondSet.includes('1')) {
                         console.debug('secondSet contains 0 or 1');
+                        secondSetAsWord = assets_1.getNumberAsWord(secondSet);
                         zeroCounter++;
-                        secondSetTopThree = [assets_1.getNumberAsWord(secondSet), assets_1.getNumberAsWord(secondSet), assets_1.getNumberAsWord(secondSet)];
+                        secondSetVanity = [secondSetAsWord, secondSetAsWord, secondSetAsWord, secondSetAsWord, secondSetAsWord];
                     }
                     else {
-                        secondSetTopThree = assets_1.getTopThreeWords(secondSet);
-                        console.log('secondSetTopThree: ', secondSetTopThree);
+                        secondSetVanity = assets_1.getOrderVanityWords(secondSet);
+                        console.log('secondSetVanity: ', secondSetVanity);
                     }
                     if ((thirdSet.includes('0') || thirdSet.includes('1')) &amp;&amp; (zeroCounter == 2)) {
                         console.debug('All three sets include a 0 or 1');
                         return [2 /*return*/, false];
                     }
-                    thirdSetTopThree = assets_1.getTopThreeWords(thirdSet);
-                    console.log('thirdSetTopThree: ', thirdSetTopThree);
+                    thirdSetVanity = assets_1.getOrderVanityWords(thirdSet);
+                    console.log('thirdSetVanity: ', thirdSetVanity);
                     vanityWords = [
-                        firstSetTopThree[0] + " " + secondSetTopThree[0] + " " + thirdSetTopThree[0],
-                        firstSetTopThree[0] + " " + secondSetTopThree[0] + " " + thirdSetTopThree[0],
-                        firstSetTopThree[0] + " " + secondSetTopThree[0] + " " + thirdSetTopThree[0]
+                        firstSetVanity[0] + " " + secondSetVanity[0] + " " + thirdSetVanity[0],
+                        firstSetVanity[1] + " " + secondSetVanity[1] + " " + thirdSetVanity[1],
+                        firstSetVanity[2] + " " + secondSetVanity[2] + " " + thirdSetVanity[2],
+                        firstSetVanity[3] + " " + secondSetVanity[3] + " " + thirdSetVanity[3],
+                        firstSetVanity[4] + " " + secondSetVanity[4] + " " + thirdSetVanity[4]
                     ];
-                    return [4 /*yield*/, assets_1.postResultstoDynamo(callerId, vanityWords)];
+                    callerIdWord = assets_1.getNumberAsWord(callerId);
+                    console.log('Vanity Words: ', vanityWords.toString());
+                    results = {
+                        callerIdWord: callerIdWord,
+                        one: vanityWords[0],
+                        two: vanityWords[1],
+                        three: vanityWords[2],
+                        four: vanityWords[3],
+                        five: vanityWords[4]
+                    };
+                    return [4 /*yield*/, assets_1.postResultstoDynamo(callerId, results)];
                 case 1:
                     _a.sent();
-                    callerIdWord = assets_1.getNumberAsWord(callerId);
-                    console.log(JSON.stringify({
-                        callerIdWord: callerIdWord,
-                        one: firstSetTopThree[0] + ' ' + secondSetTopThree[0] + ' ' + thirdSetTopThree[0],
-                        two: firstSetTopThree[1] + ' ' + secondSetTopThree[1] + ' ' + thirdSetTopThree[1],
-                        three: firstSetTopThree[2] + ' ' + secondSetTopThree[2] + ' ' + thirdSetTopThree[2]
-                    }));
-                    return [2 /*return*/, {
-                            callerIdWord: callerIdWord,
-                            one: firstSetTopThree[0] + ' ' + secondSetTopThree[0] + ' ' + thirdSetTopThree[0],
-                            two: firstSetTopThree[1] + ' ' + secondSetTopThree[1] + ' ' + thirdSetTopThree[1],
-                            three: firstSetTopThree[2] + ' ' + secondSetTopThree[2] + ' ' + thirdSetTopThree[2]
-                        }];
+                    return [2 /*return*/, results];
             }
         });
     });
@@ -152,13 +151,13 @@ exports.handler = function (event) {
 </div>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#handler">handler</a></li></ul>
+    <h2><a href="index.html">Home</a></h2>
 </nav>
 
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.6</a> on Sat Feb 13 2021 17:53:38 GMT-0700 (Mountain Standard Time)
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.6</a> on Sun Feb 14 2021 14:27:55 GMT-0700 (Mountain Standard Time)
 </footer>
 
 <script> prettyPrint(); </script>

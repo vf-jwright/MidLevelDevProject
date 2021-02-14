@@ -6,7 +6,7 @@
   "scripts": {
     "tsc": "tsc --declaration ./src/*.ts --outDir ./lib",
     "clean": "rimraf ./lib",
-    "build": "npm run clean && npm run tsc && npm run doc",
+    "build": "npm i && npm run clean && npm run tsc",
     "doc": "jsdoc -c jsdoc.json"
   },
   "jest": {

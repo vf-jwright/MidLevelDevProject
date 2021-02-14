@@ -7,11 +7,11 @@ import { getAllVanityWords } from './getAllVanityWords';
 import { spellCheckVanityWords } from './spellCheckVanityWords';
 import { postResultstoDynamo } from './postResultstoDynamo';
 import { getNumberAsWord } from './getNumberAsWord';
-import { getTopThreeWords } from './getTopThreeWords';
+import { getOrderVanityWords } from './getOrderVanityWords';
 export { 
     getAllVanityWords,
     spellCheckVanityWords,
     postResultstoDynamo,
     getNumberAsWord,
-    getTopThreeWords
+    getOrderVanityWords
 };
