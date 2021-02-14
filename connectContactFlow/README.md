@@ -17,5 +17,5 @@ Amazon Connect contact flow that looks at the caller's phone number and says the
 1. Progress back to AWS Console - Amazon Connect.
 2. Select the Connect **Instance Alias** your Contact Flow is in.
 3. Click "Contact flows" and from the AWS Lambda section **+Add Lambda Function**<br /><img src="assets/addLambdaFunction.png" alt="drawing" width="400"/><br />(This will provide permission for the Contact Flow to invoke the Lambda Function)
-4. Add the Labmda Funtion from the output of the CloudFormation Stack from the [CDK Deloyment](https://github.com/jrwright121/MidLevelDevProject/tree/main/cdkStackforLambdaDynamoDb)
+4. Add the Lambda Function from the output of the CloudFormation Stack from the [CDK Deployment](https://github.com/jrwright121/MidLevelDevProject/tree/main/cdkStackforLambdaDynamoDb)
 
