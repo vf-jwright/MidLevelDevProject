@@ -1,7 +1,8 @@
 /**
- * @fileoverview 
+ * @fileoverview Function to convert number digits to all possible combinations of letters as they correspond on a phone key pad. 
  * @author Jacob Wright
- * 
+ * @param {input} - any length number segment 
+ * @returns {string[]} - all letter combinations  
  */
 export const getAllVanityWords = function (input: string):string[]  {
     console.log('Entered getAllVanityWords: ', input)

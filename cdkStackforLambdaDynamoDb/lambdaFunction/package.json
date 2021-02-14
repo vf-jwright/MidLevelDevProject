@@ -6,7 +6,8 @@
   "scripts": {
     "tsc": "tsc --declaration ./src/*.ts --outDir ./lib",
     "clean": "rimraf ./lib",
-    "build": "npm i && npm run clean && npm run tsc"
+    "build": "npm i && npm run clean && npm run tsc",
+    "doc": "jsdoc -c jsdoc.json"
   },
   "jest": {
     "collectCoverage": true,
