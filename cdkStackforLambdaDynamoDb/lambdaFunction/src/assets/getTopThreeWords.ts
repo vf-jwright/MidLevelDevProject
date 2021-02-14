@@ -4,17 +4,17 @@
  * 
  */
 import {getAllVanityWords, spellCheckVanityWords, getNumberAsWord} from './assets'
-export const getTopThreeWords = function (input: string): [string,string,string] {
+export const getTopThreeWords = function (input: string): [string,string,string] {//! need to change functionname, output type
     console.log('Entering getTopThreeWords: ', input)
     let combinedArray: string[];
     const vanityWords: string[] = getAllVanityWords(input);
     const spellcheckedWords: string[] = spellCheckVanityWords(vanityWords)
     console.log('spellcheckedWords: ', spellcheckedWords)
-    if(spellcheckedWords.length >= 3){
-        console.debug('spellcheckedWords >= 3');
+    if(spellcheckedWords.length >= 3){//! change to 5
+        console.debug('spellcheckedWords >= 3'); //! and here
         let array = shuffleArray(spellcheckedWords)
         // @ts-ignore
-        return array.slice(0,3)
+        return array.slice(0,3)//! and here
     }
     
     if ((input.length == 3) && (spellcheckedWords.length < 3)){
