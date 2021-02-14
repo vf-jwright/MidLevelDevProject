@@ -1,21 +1,31 @@
+/**
+ * @fileoverview 
+ * @author Jacob Wright
+ * 
+ */
 import {getAllVanityWords, spellCheckVanityWords, getNumberAsWord} from './assets'
 export const getTopThreeWords = function (input: string): [string,string,string] {
-    let combindedArray: string[];
-    const vanityWords: string[] = getAllVanityWords(input)
+    console.log('Entering getTopThreeWords: ', input)
+    let combinedArray: string[];
+    const vanityWords: string[] = getAllVanityWords(input);
     const spellcheckedWords: string[] = spellCheckVanityWords(vanityWords)
+    console.log('spellcheckedWords: ', spellcheckedWords)
     if(spellcheckedWords.length >= 3){
+        console.debug('spellcheckedWords >= 3');
         let array = shuffleArray(spellcheckedWords)
         // @ts-ignore
         return array.slice(0,3)
     }
     
     if ((input.length == 3) && (spellcheckedWords.length < 3)){
-        combindedArray = shuffleArray(spellcheckedWords).concat([getNumberAsWord(input),getNumberAsWord(input),getNumberAsWord(input)])
+        console.debug('(input.length == 3) && (spellcheckedWords.length < 3)');
+        combinedArray = shuffleArray(spellcheckedWords).concat([getNumberAsWord(input),getNumberAsWord(input),getNumberAsWord(input)])
     } else {
-        combindedArray= shuffleArray(spellcheckedWords).concat(shuffleArray(vanityWords))
+        console.log('Else  ((input.length == 3) && (spellcheckedWords.length < 3))')
+        combinedArray= shuffleArray(spellcheckedWords).concat(shuffleArray(vanityWords))
     }
     // @ts-ignore
-    return combindedArray.slice(0,3)
+    return combinedArray.slice(0,3)
 }
 
 const shuffleArray = function (array:string[]):string[] {

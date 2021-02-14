@@ -1,5 +1,11 @@
+/**
+ * @fileoverview 
+ * @author Jacob Wright
+ * 
+ */
 export const getNumberAsWord = function (number: string) : string {
-    const numbertoWord = {
+    console.log('Entered getNumberAsWord: ', number)
+    const numberToWord = {
         1: 'one ',
         2: 'two ',
         3: 'three ',
@@ -18,7 +24,7 @@ export const getNumberAsWord = function (number: string) : string {
     const numberArray = number.split('')
     numberArray.map((letter:string)=> {
         // @ts-ignore
-        word = word.concat(numbertoWord[letter])
+        word = word.concat(numberToWord[letter])
     })
     return word
 }

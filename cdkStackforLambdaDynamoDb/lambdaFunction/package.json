@@ -4,10 +4,9 @@
   "description": " converts phone numbers to vanity numbers and save the best 5 resulting vanity numbers and the caller's number in a DynamoDB table converts phone numbers to vanity numbers and save the best 5 resulting vanity numbers and the caller's number in a DynamoDB table",
   "main": "lib/index.js",
   "scripts": {
-    "moveToRoot": "cd ../",
     "tsc": "tsc --declaration ./src/*.ts --outDir ./lib",
     "clean": "rimraf ./lib",
-    "build": "npm i && npm run clean && npm run tsc && npm moveToRoot"
+    "build": "npm i && npm run clean && npm run tsc"
   },
   "jest": {
     "collectCoverage": true,
@@ -30,6 +29,7 @@
     "@types/aws-sdk": "^2.7.0",
     "@types/spellchecker": "^3.5.0",
     "jest": "^26.6.3",
+    "jsdoc": "^3.6.6",
     "rimraf": "^3.0.2"
   }
 }

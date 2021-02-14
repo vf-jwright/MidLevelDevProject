@@ -1,3 +1,8 @@
+/**
+ * @fileoverview 
+ * @author Jacob Wright
+ * 
+ */
 import { getAllVanityWords } from './getAllVanityWords';
 import { spellCheckVanityWords } from './spellCheckVanityWords';
 import { postResultstoDynamo } from './postResultstoDynamo';

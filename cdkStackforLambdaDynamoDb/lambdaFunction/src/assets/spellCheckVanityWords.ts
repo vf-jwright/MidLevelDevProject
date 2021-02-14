@@ -1,6 +1,12 @@
+/**
+ * @fileoverview 
+ * @author Jacob Wright
+ * 
+ */
 const spellChecker = require('spell-checker-js')
 spellChecker.load('en')
 export const spellCheckVanityWords = function (vanityWords: string[]) : string[] {
+    console.debug("Entering spellCheckVanityWords")
     let output:string[] = [];
     for(const word of vanityWords){
         let value = spellChecker.check(word)
