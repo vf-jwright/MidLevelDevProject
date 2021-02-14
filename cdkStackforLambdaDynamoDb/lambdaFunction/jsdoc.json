@@ -7,7 +7,7 @@
     "plugins": ["plugins/markdown"],
     "templates": {
         "cleverLinks": true,
-        "monspaceLinks": true
+        "monospaceLinks": true
     },
     "opts": {
         "recurse": true,

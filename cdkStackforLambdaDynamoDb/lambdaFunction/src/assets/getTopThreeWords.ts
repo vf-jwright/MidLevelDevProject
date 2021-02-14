@@ -6,10 +6,14 @@
 import {getAllVanityWords, spellCheckVanityWords, getNumberAsWord} from './assets'
 export const getTopThreeWords = function (input: string): [string,string,string] {
     console.log('Entering getTopThreeWords: ', input)
+
     let combinedArray: string[];
+    // convert number digits to all possible letter combinations from a phone key pad 
     const vanityWords: string[] = getAllVanityWords(input);
+    // spell check each combination this is the primary scoring method for this application
     const spellcheckedWords: string[] = spellCheckVanityWords(vanityWords)
     console.log('spellcheckedWords: ', spellcheckedWords)
+
     if(spellcheckedWords.length >= 3){
         console.debug('spellcheckedWords >= 3');
         let array = shuffleArray(spellcheckedWords)
