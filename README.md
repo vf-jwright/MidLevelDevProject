@@ -11,3 +11,6 @@
 * Record your reasons for implementing the solution the way you did, struggles you faced and problems you overcame.
 * What shortcuts did you take that would be a bad practice in production?
 * What would you have done with more time?
+
+## Test It Out!!! (216) 297-7866
+Dial the number above to experience a working demo. 
