@@ -12,5 +12,5 @@
 * What shortcuts did you take that would be a bad practice in production?
 * What would you have done with more time?
 
-## Test It Out!!! call: (216) 297-7866
+## Test It Out!!! call: (216) 297-7866 aka: (216) 297-SUMO
 Dial the number above to experience a working demo. 

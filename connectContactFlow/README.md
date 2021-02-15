@@ -10,7 +10,7 @@ Amazon Connect contact flow that looks at the caller's phone number and says the
 1. From Amazon Connect Account, click "Create contact flow"
 2. Next to inactive save button click the dropdown and select "Import flow (beta)"
 3. Click "Select" and from the file explorer choose "connectContactFlow/MidLevelDevProject"
-4. Click "invoke AWSLambda function" node, and change the <account-id> to your own.<br /><img src="assets/updateLambdaInformation.png" alt="drawing" width="400"/>
+4. Click "invoke AWSLambda function" node, and change ARN to your own.<br /><img src="assets/updateLambdaInformation.png" alt="drawing" width="400"/>
 5. Save and Publish Contact Flow. 
   
 ### Add Lambda Function to Contact Flow
