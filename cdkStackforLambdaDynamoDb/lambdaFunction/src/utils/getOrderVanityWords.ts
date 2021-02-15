@@ -3,7 +3,7 @@
  * @author Jacob Wright
  * 
  */
-import {getAllVanityWords, spellCheckVanityWords, getNumberAsWord} from './assets'
+import {getAllVanityWords, spellCheckVanityWords, getNumberAsWord} from './utils'
 export const getOrderVanityWords = function (input: string): string[] {
     console.log('Entering getTopThreeWords: ', input)
     // convert number digits to all possible letter combinations from a phone key pad 
