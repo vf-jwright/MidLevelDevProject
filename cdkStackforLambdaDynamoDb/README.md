@@ -16,7 +16,7 @@ Run all step in order
  2. `cd MidLevelDevProject/cdkStackforLambdaDynamoDb/` - Progress to the cdk project
  3. `npm run deploy` - Installs CDK stack and Lambda Function dependencies then deploys CDK stack.<br />*this may take some time
 
-`npm run deploy` Cammands in Order 
+`npm run deploy` Commands in Order 
  1. `npm i`  Installs cdk node dependencies.
  3. `cd ./lambdaFunction`  - Direct to Lambda Function and build Lambda Function. 
  3. `npm i` Install Lambda Function node dependencies. 
