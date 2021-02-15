@@ -89,4 +89,3 @@ export const handler = async function (event: any) {
     await postResultstoDynamo(callerId, results)
     return results
 }
-const testEvent = 
