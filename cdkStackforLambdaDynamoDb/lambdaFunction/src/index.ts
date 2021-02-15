@@ -8,7 +8,7 @@ import {
     getOrderVanityWords,
     postResultstoDynamo,
     getNumberAsWord
-} from './assets/assets'
+} from './utils/utils'
 /**
  * @param event : any - Contact Flow event expected to contain customerEndpoint with Address and Type = TELEPHONE_NUMBER
  * @returns {results}: 
@@ -22,7 +22,7 @@ type resultsObject = {
     five: string
 }
 export const handler = async function (event: any) {
-    console.log("Entering handler: ", event.toString())
+    console.log("Entering handler: ", JSON.stringify(event))
 
     // Input Validation 
     if(event.Details.ContactData.CustomerEndpoint.Type != 'TELEPHONE_NUMBER') return false
@@ -89,3 +89,4 @@ export const handler = async function (event: any) {
     await postResultstoDynamo(callerId, results)
     return results
 }
+const testEvent = 
