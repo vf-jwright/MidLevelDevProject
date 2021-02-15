@@ -13,9 +13,8 @@ export class MidLevelDevProjectStack extends cdk.Stack {
       partitionKey: {name: 'phoneNumber', type: AttributeType.STRING},
       sortKey: {name: 'timestamp', type: AttributeType.STRING}
     })
-    //! Create Lambda Function for Lex Bot in Contact Flow. (Or to be triggered by Contact Flow directly)
+    // Create Lambda Function for Lex Bot in Contact Flow. (Or to be triggered by Contact Flow directly)
     this.lambdaFunction = new Function(this, 'convertsPhoneNumbersToVanityNumbers', {
-      functionName: 'convertsPhoneNumbersToVanityNumbers',
       runtime: Runtime.NODEJS_12_X,
       code: new AssetCode("lambdaFunction"),
       timeout: Duration.seconds(30),
@@ -28,5 +27,7 @@ export class MidLevelDevProjectStack extends cdk.Stack {
     });
     // Adding IAM permissions for Lambda to write to dynamodb
     this.dynamoDbTable.grantReadWriteData(this.lambdaFunction)
+    new cdk.CfnOutput(this, 'Lambda Function ARN', { value: this.lambdaFunction.functionArn });
+    new cdk.CfnOutput(this, 'DynamoDb Table Name', { value: this.dynamoDbTable.tableName})
   }
 }

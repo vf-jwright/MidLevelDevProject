@@ -6,11 +6,11 @@
   },
   "scripts": {
     "synthesize": "cdk synthesize",
-    "bootstrap": "cdk bootstap",
+    "bootstrap": "cdk bootstrap",
     "runDeploy": "cdk deploy",
     "deployStack": "npm run synthesize && npm run bootstrap && npm run runDeploy",
-    "moveToLambda": "cd ./lambdaFunction/",
-    "deploy": "npm i && npm run moveToLambda $$ npm run build $$ cd ../ && npm run deployStack",
+    "buildLambda": "cd ./lambdaFunction/ && npm run build",
+    "deploy": "npm i &&  npm run buildLambda",
     "cdk": "cdk"
   },
   "devDependencies": {

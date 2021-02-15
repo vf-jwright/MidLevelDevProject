@@ -3,6 +3,7 @@
  * @author Jacob Wright
  */
 import * as AWS from 'aws-sdk';
+import { allowedNodeEnvironmentFlags } from 'process';
 AWS.config.update({ region: 'us-east-1' });
 import {
     getOrderVanityWords,
@@ -88,3 +89,5 @@ export const handler = async function (event: any) {
     await postResultstoDynamo(callerId, results)
     return results
 }
+const testEvent = require('../events/event.json')
+exports.handler(testEvent)

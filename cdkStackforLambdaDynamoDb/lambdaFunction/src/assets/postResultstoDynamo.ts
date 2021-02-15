@@ -15,11 +15,11 @@ type resultsObject = {
     four: string,
     five: string
 }
-export const postResultstoDynamo = async function (callerId: string, results: resultsObject) : Promise<Request<DynamoDB.PutItemOutput, AWSError>> {
+export const postResultstoDynamo = async function (callerId: string, results: resultsObject){
     console.log('Entering postResultstoDynamo: ', callerId, JSON.stringify(results))
     const timestamp = Date.now().toString();
     const params = {
-        TableName: process.env.TableName? process.env.TableName : 'na',
+        TableName: process.env.TableName? process.env.TableName : 'MidLevelDevProjectStack-VanityNumbers9448E191-1VDWADSHM57VJ',
         Item: {
             phoneNumber: callerId,
             timestamp,
@@ -27,10 +27,5 @@ export const postResultstoDynamo = async function (callerId: string, results: re
         }
     }
     console.log('Params: ', params)
-    const postResults = await ddb.put(params, function(err: AWSError, data:PutItemOutput) {
-        if (err) console.error(err);
-        else console.info("data: ", data);
-    });
-    console.log('Post Results: ', postResults)
-    return postResults
+    return ddb.put(params).promise()
 }
