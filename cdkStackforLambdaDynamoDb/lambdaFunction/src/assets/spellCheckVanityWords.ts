@@ -1,5 +1,5 @@
 /**
- * @fileoverview 
+ * @fileoverview This function takes an array of words and returns an array of words that are considered spelled correctly.
  * @author Jacob Wright
  * 
  */

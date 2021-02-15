@@ -1,5 +1,5 @@
 /**
- * @fileoverview 
+ * @fileoverview This script imports and exports all functions to be used from any other script easily. 
  * @author Jacob Wright
  * 
  */

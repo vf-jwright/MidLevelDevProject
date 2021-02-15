@@ -3,7 +3,6 @@
  * @author Jacob Wright
  */
 import * as AWS from 'aws-sdk';
-import { allowedNodeEnvironmentFlags } from 'process';
 AWS.config.update({ region: 'us-east-1' });
 import {
     getOrderVanityWords,
@@ -27,7 +26,7 @@ export const handler = async function (event: any) {
 
     // Input Validation 
     if(event.Details.ContactData.CustomerEndpoint.Type != 'TELEPHONE_NUMBER') return false
-    let callerId = event.Details.ContactData.CustomerEndpoint.Address ? event.Details.ContactData.CustomerEndpoint.Address : '+15053532338'
+    let callerId = event.Details.ContactData.CustomerEndpoint.Address ? event.Details.ContactData.CustomerEndpoint.Address : '+15555555555'
     
     // Initializing variable to be used. 
     let firstSetVanity: string[];
@@ -86,8 +85,7 @@ export const handler = async function (event: any) {
         four:  vanityWords[3],
         five:  vanityWords[4]
     }
+    // Post top five results to DynamoDb
     await postResultstoDynamo(callerId, results)
     return results
 }
-const testEvent = require('../events/event.json')
-exports.handler(testEvent)

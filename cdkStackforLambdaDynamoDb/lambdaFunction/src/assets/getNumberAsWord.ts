@@ -1,5 +1,5 @@
 /**
- * @fileoverview 
+ * @fileoverview Converts a string of numbers to words for each digit. This is to make number audible in Contact Flow
  * @author Jacob Wright
  * 
  */
